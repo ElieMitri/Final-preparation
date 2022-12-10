@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More</title>
+    <link rel="stylesheet" href="more.css" />
+    <script src="index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7dd53c1551.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="nav__wrapper">
+          <div class="name__wrapper">
+            <div class="nav__name">EM</div>
+          </div>
+          <ul class="nav__links">
+            <li class="nav__link">
+              <a class="nav__a cursor" href="index.html">Home</a>
+            </li>
+            <li class="nav__link">
+              <a class="nav__a cursor" href="more.html">Find Your Movie</a>
+            </li>
+            <button class="nav__btn cursor">Contact</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="movies">
+      <div class="container">
+        <div class="row">
+          <form onsubmit="fetchResults(event)" action="">
+            <input
+              class="movies__input"
+              type="text"
+              placeholder="Type You Favorite Movie..."
+            />
+            <div onclick="fetchResults(event)" class="magnifying__glass--wrapper">
+              <i class="fa-solid fa-magnifying-glass cursor"></i>
+            </div>
+          </form>
+          <div class="movies__wrapper">
+            <h1 class="aqua--text search">Search Results:</h1>
+            <h1 class="remove__loading">Loading..</h1>
+            <div class="movies">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
