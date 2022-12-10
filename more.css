@@ -85,7 +85,8 @@ a {
   color: aqua;
 }
 
-.nav__a {
+.nav__a,
+.nav__a2 {
   font-weight: bold;
   color: aqua;
 }
@@ -144,12 +145,18 @@ form {
 }
 
 .movie {
-  border: 3px solid aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 70px;
   width: calc(100% / 3);
+}
+
+.search__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .poster__fig {
@@ -160,4 +167,38 @@ form {
 
 .remove__loading {
   color: aqua;  
+}
+
+@media (max-width: 1040px) {
+  .movies {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 670px) {
+  h1 {
+    font-size: 20px;
+  }
+  .search {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .movie {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav__a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 470px) {
+  .nav__a2,
+  .nav__btn {
+    display: none;
+  }
 }
