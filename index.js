@@ -2,18 +2,18 @@ const movie = document.querySelector(".movies");
 
 async function searchMovie() {
   const moviesWrapper = await fetch(
-    "https://www.omdbapi.com/?i=tt3896198&apikey=8d3516ff&s=fast"
+    "https://www.omdbapi.com/?i=tt3896198&apikey=8d3516ff&s=spiderman"
   );
   const moviesData = await moviesWrapper.json();
-  document.querySelector(".remove__loading").style.display = "none"
+  document.querySelector(".remove__loading").style.display = "none";
   moviesHtml(moviesData);
-  
 }
 
 searchMovie();
 
 function moviesHtml(moviesData) {
-  const movieHtml = moviesData.Search.map((movie) => {
+  console.log(moviesData);
+  const movieHtml = moviesData.Search.map(movie => {
     return `<div class="movie">
    <figure><img src="${movie.Poster}" alt=""></figure>
     <h1>Title: ${movie.Title}</h1>
@@ -21,7 +21,7 @@ function moviesHtml(moviesData) {
     <h1>Id: ${movie.imdbID}</h1>
     <h1>Type: ${movie.Type}</h1>
   </div>`;
-  }).join("");
+  });
   movie.innerHTML = movieHtml;
 }
 
@@ -31,7 +31,13 @@ async function fetchResults(event) {
   const moviesWrapper = await fetch(
     `https://www.omdbapi.com/?i=tt3896198&apikey=8d3516ff&s=${inputValue}`
   );
+
   const moviesData = await moviesWrapper.json();
-  moviesHtml(moviesData);
-  console.log(inputValue);
+  const arr = [];
+  for (let i = 0; i < moviesData.Search.length; ++i) {
+    if (moviesData.Search[i].Poster !== "N/A") {
+      arr.push(moviesData.Search[i]);
+    }
+  }
+  moviesHtml(arr);
 }
