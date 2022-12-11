@@ -11,9 +11,14 @@ async function searchMovie() {
 
 searchMovie();
 
+async function main(moviesData) {
+    const moviesWrapper = await fetch("https://www.omdbapi.com/?i=tt3896198&apikey=8d3516ff&s=spiderman");
+    movie.innerHTML = moviesData.Search.map((movie) => moviesHtml(movie)).join("")
+}
 
-function moviesHtml(moviesData) {
-  const movieHtml = moviesData.map((movie) => {
+main()
+
+function moviesHtml(movie) {
     return `<div class="movie">
    <figure><img src="${movie.Poster}" alt=""></figure>
     <h1>Title: ${movie.Title}</h1>
@@ -21,8 +26,6 @@ function moviesHtml(moviesData) {
     <h1>Id: ${movie.imdbID}</h1>
     <h1>Type: ${movie.Type}</h1>
   </div>`;
-  }).join("");
-  movie.innerHTML = movieHtml;
 }
 
   async function fetchResults(event) {
